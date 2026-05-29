@@ -101,6 +101,13 @@ body {
     display: inline-block;
 }
 
+.pronouns {
+    font-size: 1.75rem;
+    color: var(--overlay-1);
+    display: inline-block;
+    margin-left: -1rem;
+}
+
 .intro-text {
     padding: 1vh;
 
