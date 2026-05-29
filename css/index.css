@@ -112,3 +112,18 @@ body {
     padding: 1vh;
 
 }
+
+@media (max-width: 600px) {
+    .intro {
+    margin-top: 10vh;
+    color: var(--text);
+    text-align: center;
+    padding: 5vh
+    }
+
+
+    .intro-text {
+        margin-top: 1vh;
+        padding: 1vh;
+
+}
