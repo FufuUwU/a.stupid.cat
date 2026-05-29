@@ -109,10 +109,8 @@ body {
 
 }
 
-
 .intro-text {
     padding: 1vh;
-
 }
 
 @media (max-width: 600px) {
@@ -136,6 +134,10 @@ body {
 @media (min-width: 768px) {
     .desktop-break {
         display: block;
+    }
+
+    .intro-text {
+        margin-top: 1vh;
     }
 }
 
