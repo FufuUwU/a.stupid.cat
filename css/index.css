@@ -105,8 +105,10 @@ body {
     font-size: 1.75rem;
     color: var(--overlay-1);
     display: inline-block;
-    margin-left: -1rem;
+
+
 }
+
 
 .intro-text {
     padding: 1vh;
@@ -115,10 +117,10 @@ body {
 
 @media (max-width: 600px) {
     .intro {
-    margin-top: 10vh;
-    color: var(--text);
-    text-align: center;
-    padding: 5vh
+        margin-top: 10vh;
+        color: var(--text);
+        text-align: center;
+        padding: 5vh
     }
 
     .intro-text {
@@ -126,3 +128,14 @@ body {
         padding: 1vh;
     }
 }
+
+.desktop-break {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .desktop-break {
+        display: block;
+    }
+}
+
