@@ -83,7 +83,7 @@ body::before {
   z-index: 0;
 }
 
-
+/* this is the weird css */
 .intro {
     margin-top: 20vh;
     color: var(--text);
@@ -118,6 +118,7 @@ body::before {
     padding: 1vh;
 }
 
+
 @media (max-width: 600px) {
     .intro {
         margin-top: 10vh;
@@ -146,3 +147,4 @@ body::before {
     }
 }
 
+/* ----------- */
