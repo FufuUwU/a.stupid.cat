@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Classic",
+    "sprite": "/assets/oneko/classics/classic.png",
+    "filter": "none",
+    "category": "Classics"
+  },
+  {
+    "name": "Aquaneon",
+    "sprite": "/assets/oneko/classics/aquaneon.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Black Green",
+    "sprite": "/assets/oneko/classics/black-green.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Black",
+    "sprite": "/assets/oneko/classics/black.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Byte Green",
+    "sprite": "/assets/oneko/classics/byte-green.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Deedee",
+    "sprite": "/assets/oneko/classics/deedee.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Dusty Cat",
+    "sprite": "/assets/oneko/classics/dusty.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Ghost",
+    "sprite": "/assets/oneko/classics/ghost.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Ghost Spirit",
+    "sprite": "/assets/oneko/classics/ghostspirit.png",
+    "filter": "drop-shadow(0 0 4px #89dceb)",
+    "category": "Classics"
+  },
+  {
+    "name": "Gold Cat",
+    "sprite": "/assets/oneko/classics/gold.png",
+    "category": "Rare"
+  },
+  {
+    "name": "Gray",
+    "sprite": "/assets/oneko/classics/gray.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Red",
+    "sprite": "/assets/oneko/classics/red.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Sapphire Cat",
+    "sprite": "/assets/oneko/classics/sapphire.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Silver Sky",
+    "sprite": "/assets/oneko/classics/silversky.png",
+    "category": "Classics"
+  },
+  {
+    "name": "Vaporwave",
+    "sprite": "/assets/oneko/classics/vaporwave.png",
+    "category": "Classics"
+  }
+]

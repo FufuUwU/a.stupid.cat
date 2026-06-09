@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Chocola",
+    "sprite": "/assets/oneko/things/chocola.png",
+    "category": "Things"
+  },
+  {
+    "name": "Coke Bottle",
+    "sprite": "/assets/oneko/things/coke-bottle.png",
+    "category": "Things"
+  },
+  {
+    "name": "Fire",
+    "sprite": "/assets/oneko/things/fire.png",
+    "category": "Things"
+  },
+  {
+    "name": "Marisa",
+    "sprite": "/assets/oneko/things/marisa.png",
+    "category": "Things"
+  },
+  {
+    "name": "Microbot",
+    "sprite": "/assets/oneko/things/microbot.png",
+    "category": "Things"
+  },
+  {
+    "name": "Mini",
+    "sprite": "/assets/oneko/things/mini.png",
+    "category": "Things"
+  },
+  {
+    "name": "Robot",
+    "sprite": "/assets/oneko/things/robot.png",
+    "category": "Things"
+  },
+  {
+    "name": "Sami",
+    "sprite": "/assets/oneko/things/sami.png",
+    "category": "Things"
+  },
+  {
+    "name": "Star",
+    "sprite": "/assets/oneko/things/star.png",
+    "category": "Things"
+  },
+  {
+    "name": "Ufo",
+    "sprite": "/assets/oneko/things/ufo.png",
+    "category": "Things"
+  }
+]

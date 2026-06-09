@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Ace",
+    "sprite": "/assets/oneko/cats/ace.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Blue Tapy",
+    "sprite": "/assets/oneko/cats/blue-tapy.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Calico",
+    "sprite": "/assets/oneko/cats/calico.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Cattail",
+    "sprite": "/assets/oneko/cats/cattail.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Esmeralda",
+    "sprite": "/assets/oneko/cats/esmeralda.png",
+    "category": "Romance"
+  },
+  {
+    "name": "Jess",
+    "sprite": "/assets/oneko/cats/jess.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Kina",
+    "sprite": "/assets/oneko/cats/kina.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Lucy",
+    "sprite": "/assets/oneko/cats/lucy.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Maia",
+    "sprite": "/assets/oneko/cats/maia.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Maria",
+    "sprite": "/assets/oneko/cats/maria.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Mike",
+    "sprite": "/assets/oneko/cats/mike.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Rainbow Tapy",
+    "sprite": "/assets/oneko/cats/rainbow-tapy.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Silver",
+    "sprite": "/assets/oneko/cats/silver.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Spirit",
+    "sprite": "/assets/oneko/cats/spirit.png",
+    "category": "Cats"
+  },
+  {
+    "name": "Tapy",
+    "sprite": "/assets/oneko/cats/tapy.png",
+    "category": "Cats"
+  },
+  {
+    "name": "USA",
+    "sprite": "/assets/oneko/cats/usa.png",
+    "category": "Romance"
+  },
+  {
+    "name": "Valentine",
+    "sprite": "/assets/oneko/cats/valentine.png",
+    "category": "Romance"
+  }
+]

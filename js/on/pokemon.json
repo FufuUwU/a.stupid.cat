@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Eevee",
+    "sprite": "/assets/oneko/pokemon/eevee.png",
+    "category": "Pok\u00e9mon"
+  },
+  {
+    "name": "Espeon",
+    "sprite": "/assets/oneko/pokemon/espeon.png",
+    "category": "Pok\u00e9mon"
+  },
+  {
+    "name": "Gastly",
+    "sprite": "/assets/oneko/pokemon/gastly.png",
+    "category": "Pok\u00e9mon"
+  },
+  {
+    "name": "Jigglypuff",
+    "sprite": "/assets/oneko/pokemon/jigglypuff.png",
+    "category": "Pok\u00e9mon"
+  },
+  {
+    "name": "Pikachu",
+    "sprite": "/assets/oneko/pokemon/pikachu.png",
+    "category": "Pok\u00e9mon"
+  },
+  {
+    "name": "Psyduck",
+    "sprite": "/assets/oneko/pokemon/psyduck.png",
+    "category": "Pok\u00e9mon"
+  },
+  {
+    "name": "Skitty",
+    "sprite": "/assets/oneko/pokemon/skitty.png",
+    "category": "Pok\u00e9mon"
+  }
+]

@@ -1,83 +1,48 @@
-@font-face {
-  font-family: 'Comic Code';
-  src: url('https://fonts.doughmination.co.uk/ComicCode-Regular_2022-05-24-151938_hsmz.woff2') format('woff2'),
-    url('https://fonts.doughmination.co.uk/ComicCode-Regular_2022-05-24-151938_hsmz.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
+@import url("fonts.css");
+@import url(theme-switcher.css);
+@import url("picker.css");
+@import url(themes/mocha.css);
+@import url(themes/macciato.css);
+@import url(themes/frappe.css);
+@import url(themes/latte.css);
 
-@font-face {
-  font-family: 'Comic Code';
-  src: url('https://fonts.doughmination.co.uk/ComicCode-Italic_2022-05-24-151939_rdtu.woff2') format('woff2'),
-    url('https://fonts.doughmination.co.uk/ComicCode-Italic_2022-05-24-151939_rdtu.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-}
 
-@font-face {
-  font-family: 'Comic Code';
-  src: url('https://fonts.doughmination.co.uk/ComicCode-Medium_2022-05-24-151941_ugqm.woff2') format('woff2'),
-    url('https://fonts.doughmination.co.uk/ComicCode-Medium_2022-05-24-151941_ugqm.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Comic Code';
-  src: url('https://fonts.doughmination.co.uk/ComicCode-Bold_2022-05-24-152309_zqkm.woff2') format('woff2'),
-    url('https://fonts.doughmination.co.uk/ComicCode-Bold_2022-05-24-152309_zqkm.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
-:root {
-    /* https://catppuccin.com/palette/ */
-    /* Catppuccin Mocha */
-    /* accents */
-    --rosewater: #f5e0dc;
-    --flamingo: #f2cdcd;
-    --pink: #f5c2e7;
-    --mauve: #cba6f7;
-    --red: #f38ba8;
-    --maroon: #eba0ac;
-    --peach: #fab387;
-    --yellow: #f9e2af;
-    --green: #a6e3a1;
-    --teal: #94e2d5;
-    --sky: #89dceb;
-    --saphire: #74c7ec;
-    --blue: #89b4fa; /* a lovely new blue passport */
-    --lavender: #b4befe;
-    /* Text */
-    --text: #cdd6f4;
-    --subtext-0: #a6adc8;
-    --subtext-1: #bac2de;
-    --overlay-0: #6c7086;
-    --overlay-1: #7f849c;
-    --overlay-2: #9399b2;
-    --surface-0: #313244;
-    --surface-1: #45475a;
-    --surface-2: #585b70;
-    /* Backgrounds */
-    --base: #1e1e2e;
-    --mantle: #181825;
-    --crust: #11111b; /* Is this the crusty crab? */
-}
 
 html, body {
-    background-color: var(--base);
-    color: var(--text);
-    font-family: 'Comic Code', sans-serif;
-    overflow-x: hidden;
-    max-width: 100vw;
-    margin: 0;
-    min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  background: linear-gradient(135deg, var(--base) 0%, var(--mantle) 60%, var(--crust) 100%);
 }
 
 body {
-    display: flex;
-    justify-content: center;
+  font-family: 'Comic Code', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, var(--base) 0%, var(--mantle) 60%, var(--crust) 100%);
+  color: var(--text);
 }
+
+/* Estrogen watermark blended into the background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url(/assets/theme/estrogen.svg) center / cover no-repeat;
+  filter: invert(86%) sepia(8%) saturate(900%) hue-rotate(190deg) brightness(105%);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
 
 .intro {
     margin-top: 20vh;
