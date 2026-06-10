@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    
+
     <!-- Page Title -->
     <title>Ari</title>
-    
+    <link rel="icon" type="image/png" href="/assets/media/favicon.png" />
+    <script>try { var f = localStorage.getItem('ctpFlavor'); document.documentElement.setAttribute('data-flavor', ['mocha', 'macchiato', 'frappe', 'latte'].indexOf(f) >= 0 ? f : 'mocha'); } catch (e) { document.documentElement.setAttribute('data-flavor', 'mocha'); }</script>
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Personal Site for Ari on git.gay" />
     <meta name="keywords" content="Portfolio, Personal, Developer" />
     <meta name="author" content="Ari" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ari.pages.gay" />
-    
+
     <!-- Alternate for mobile -->
     <link rel="alternate" media="only screen and (max-width: 640px)" href="https://ari.pages.gay" />
-  
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#cba6f7" />
 
     <!-- Open Graph / Discord / Facebook -->
+    <meta property="og:image" content="/assets/media/favicon.png" />
     <meta property="og:site_name" content="Ari">
     <meta property="og:title" content="Ari" />
     <meta property="og:description" content="Personal Site for Ari on git.gay" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ari.pages.gay" />
     <meta property="og:locale" content="en_GB" />
-  
+
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/assets/media/favicon.png">
+    <meta name="twitter:card" content="summary_image" />
     <meta name="twitter:title" content="Ari Stuff" />
     <meta name="twitter:description" content="Personal Site for Ari on git.gay" />
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/picker.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="intro">
         <header class="hub-header">
             <img class="pfp" src="assets/media/avatar.png" alt="Ari avatar">
-            <div class="HiIm">Hi, I'm</div> <h1>Ari</h1>
+            <div>
+                <h1 class="hey">Hi, I'm<span class="name">Ari</span></h1>
+            </div>
             <h2 class="pronouns">(She/They)</h2>
             <div class="intro-text">
-                A 17 Year Old developer from <b>England, United Kingdom</b> who rarely actually does development work, and just tries to help out whenever she can.
+                A 17 Year Old developer from <b>England, United Kingdom</b> who rarely actually does development work,
+                and just tries to help out whenever she can.
             </div>
         </header>
-       
+    </div>
+
 </body>
-    <script src="js/index.js"></script>
-    <script src="js/flavors.js"></script>
-    <script src="js/cat.js"></script>
+<script src="js/index.js"></script>
+<script src="js/flavors.js"></script>
+<script src="js/cat.js"></script>
+
 </html>
