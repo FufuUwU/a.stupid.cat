@@ -184,7 +184,7 @@ body::before {
     margin-bottom: 10px;
 }
 
-/* ---- 88x31 button wall (always visible) ---- */
+/* ---- 88x31 button wall (always visible on desktop) ---- */
 .button-wall {
   position: fixed;
   bottom: 1rem;
@@ -196,6 +196,13 @@ body::before {
   justify-content: center;
   gap: 0.5rem;
   max-width: min(90vw, 480px);
+}
+
+/* hide on mobile */
+@media (max-width: 768px) {
+  .button-wall {
+    display: none;
+  }
 }
 
 .button-wall a {
