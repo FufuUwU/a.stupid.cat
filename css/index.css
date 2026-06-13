@@ -1,3 +1,5 @@
+/* IMPORTS */
+
 @import url("fonts.css");
 @import url(theme-switcher.css);
 @import url("picker.css");
@@ -6,6 +8,7 @@
 @import url(themes/frappe.css);
 @import url(themes/latte.css);
 
+/* Index.html */
 
 
 html,
@@ -87,7 +90,6 @@ html {
     text-transform: lowercase;
 }
 
-/* Estrogen watermark blended into the background */
 body::before {
     content: "";
     position: fixed;
@@ -162,4 +164,85 @@ body::before {
     }
 }
 
-/* ----------- */
+/* Coffee/index.html */
+
+.teapot {
+    font-size: 6vh;
+}
+
+/* start of code from security.girlsnetwork.dev/coffee */
+
+body.message-page {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.message-card {
+    background: var(--surface0);
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    line-height: 1.6;
+    color: var(--text);
+    border: 1px solid var(--surface1);
+}
+
+.message-card h1 {
+    margin-top: 0;
+    color: var(--pink);
+    letter-spacing: -0.01em;
+}
+
+.message-card p {
+    color: var(--subtext1);
+}
+
+.message-card .ok    { color: var(--green); }
+.message-card .err   { color: var(--red); }
+.message-card .warn  { color: var(--yellow); }
+
+.message-card .muted {
+    color: var(--overlay1);
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+}
+
+.message-card code {
+    background: var(--mantle);
+    color: var(--rosewater);
+    padding: 0.1rem 0.4rem;
+    border-radius: 6px;
+    font-size: 0.85em;
+}
+
+.message-card a.home-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--pink);
+    transition: color 0.15s ease;
+}
+
+.message-card a.home-link:hover {
+    color: var(--flamingo);
+    text-decoration: underline;
+}
+
+.message-card .glyph {
+    font-size: 2.75rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 540px) {
+    .message-card {
+        padding: 1.75rem 1.5rem;
+    }
+}
+
+/* end of code from security.girlsnetwork.dev/coffee */
