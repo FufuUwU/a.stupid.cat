@@ -45,7 +45,7 @@ html {
     height: 96px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--yellow);
+    border: 3px solid var(--mauve);
     box-shadow: 0 4px 18px rgba(245, 194, 231, 0.25);
     margin-bottom: 0.75rem;
 }
