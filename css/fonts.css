@@ -1,4 +1,5 @@
 @font-face {
+  font-display: swap;
   font-family: 'Comic Code';
   src: url('https://fonts.doughmination.co.uk/ComicCode-Regular_2022-05-24-151938_hsmz.woff2') format('woff2'),
     url('https://fonts.doughmination.co.uk/ComicCode-Regular_2022-05-24-151938_hsmz.woff') format('woff');
@@ -7,6 +8,7 @@
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'Comic Code';
   src: url('https://fonts.doughmination.co.uk/ComicCode-Italic_2022-05-24-151939_rdtu.woff2') format('woff2'),
     url('https://fonts.doughmination.co.uk/ComicCode-Italic_2022-05-24-151939_rdtu.woff') format('woff');
@@ -15,6 +17,7 @@
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'Comic Code';
   src: url('https://fonts.doughmination.co.uk/ComicCode-Medium_2022-05-24-151941_ugqm.woff2') format('woff2'),
     url('https://fonts.doughmination.co.uk/ComicCode-Medium_2022-05-24-151941_ugqm.woff') format('woff');
@@ -23,6 +26,7 @@
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'Comic Code';
   src: url('https://fonts.doughmination.co.uk/ComicCode-Bold_2022-05-24-152309_zqkm.woff2') format('woff2'),
     url('https://fonts.doughmination.co.uk/ComicCode-Bold_2022-05-24-152309_zqkm.woff') format('woff');
