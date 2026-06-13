@@ -164,6 +164,24 @@ body::before {
     }
 }
 
+.gitgay-link {
+  background-color: var(--mauve);
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.hub-header, .pfp, .hey, .pronouns, .intro-text, .gitgay-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 /* Coffee/index.html */
 
 .teapot {

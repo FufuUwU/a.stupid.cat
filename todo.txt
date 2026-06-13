@@ -1,3 +1,1 @@
-1. Admin page easter eggs (rickroll)
-2. Custom 404 (not sure if git.gay pages supports this) 
-3. Make cool shit
+1. Make cool shit I guess.
