@@ -176,6 +176,7 @@ body::before {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 15px;
+  font-family: "Comic Code";
 }
 
 .hub-header, .pfp, .hey, .pronouns, .intro-text, .gitgay-link {
