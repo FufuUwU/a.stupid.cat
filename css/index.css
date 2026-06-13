@@ -183,6 +183,41 @@ body::before {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+/* ---- 88x31 button wall (always visible) ---- */
+.button-wall {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: min(90vw, 480px);
+}
+
+.button-wall a {
+  display: block;
+  line-height: 0;
+}
+
+.button-wall img {
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+  border: 1px solid var(--surface-1);
+  border-radius: 2px;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.button-wall a:hover img {
+  transform: translateY(-2px);
+  border-color: rgb(var(--accent-rgb));
+}
+
+
 /* Coffee/index.html */
 
 .teapot {
