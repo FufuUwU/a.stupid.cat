@@ -13,14 +13,14 @@
 
   function apply(name) {
     const f = FLAVORS[name] || FLAVORS.mocha;
-    root.setAttribute("data-flavor", name);          // CSS does the rest
+    root.setAttribute("data-flavor", name); // CSS does the rest
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", f.dot);
   }
 
   let current = ls.getItem("ctpFlavor");
   if (!ORDER.includes(current)) current = "mocha";
-  apply(current);  // the <head> snippet already set this to avoid a flash
+  apply(current); // the <head> snippet already set this to avoid a flash
 
   // ---- top-right corner icon button ----
   const bar = document.createElement("div");
@@ -47,7 +47,7 @@
 
   function paintBtn() {
     const f = FLAVORS[current];
-    icon.src = `/assets/theme/${current}.png`;   // e.g. /assets/theme/mocha.png
+    icon.src = `/assets/theme/${current}.png`; // e.g. /assets/theme/mocha.png
     icon.alt = f.label;
     btn.title = `Theme: ${f.label} (click to cycle)`;
   }

@@ -1,40 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- 
+⣿⣿⣿⠏⣴⣿⣿⣿⣿⡿⠟⢹⣿⣿⣿⡿⠋⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡉⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⢇⣾⣿⣿⣿⡿⢋⢀⣴⣿⣿⡿⠋⠀⠘⣿⣿⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣦⣤⣀⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⡏⣼⣿⣿⣿⠏⣴⢃⣾⣿⡿⢋⣴⠟⣠⣾⣿⣿⣿⠏⢁⣼⣿⣿⣿⣿⣿⣿⠟⣿⣿⣿⠟⠂⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠟⠛⠀⠘⠛⠛⣛⣛⣋⢉⣉⣉⣛⡛⠻⠿⣿⣿
+⡟⣸⣿⣿⣿⡏⡸⢡⣾⣿⢋⣤⡿⢡⣾⣿⣿⣿⠟⠁⣰⣿⠟⣹⡿⢿⣿⠋⢀⣾⣿⣿⠏⡄⢻⡆⢀⠙⣿⣿⡿⠟⢋⣩⣤⣶⣾⣿⣿⣿⠟⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶
+⢠⣿⣿⣿⣿⠃⢡⣿⡟⣡⣾⠏⣰⣿⣿⣿⡿⠋⢀⣾⡿⢁⣼⠟⢠⠞⠁⣰⣿⣿⡿⢣⣾⡇⢸⣿⣾⠆⠙⠁⣰⣾⣿⣿⣿⣿⣿⣿⣿⠏⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⡏⢠⣿⠏⣴⣿⠟⣰⣿⣿⣿⡿⣡⢃⣾⠟⢀⡞⠁⣴⢋⠄⣼⣿⣿⠏⣰⣿⡟⢀⡼⠋⣠⡶⠀⣴⣿⢿⣿⣿⢿⠏⣸⣿⡏⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣧⣿⠏⣼⡿⠿⢠⣿⣿⣿⡟⣰⢃⣾⠏⢀⠞⠀⡼⢡⠟⣼⣿⡟⣡⣾⣿⠏⠀⠄⠀⣾⡿⠁⣼⡿⢃⡜⣽⡏⠈⣰⡟⠀⠁⣾⣿⣿⣿⣿⣿⣿⡇⢹⣿⣿⣿⣿⣿⡇⢻
+⣿⣿⣿⣿⣿⡏⣸⣿⠃⠀⣼⣿⣿⡟⣴⢃⣾⠏⠀⢀⢀⡾⢡⡟⣰⣿⢋⣴⡿⠋⠁⣀⠀⠀⣰⡿⠁⡌⡸⢁⣾⣿⡟⠀⢠⣿⡇⠀⣸⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⣿⣿⡇⢸
+⣿⣿⣿⣿⡿⢰⣿⠃⡆⢀⣿⣿⡟⣸⠏⣾⠏⣴⠂⠂⣾⢡⡟⣰⡟⣡⠞⣩⠄⢀⣼⠁⠀⣼⣿⠇⡼⠠⠃⣼⣿⡿⠁⢀⣾⠿⠀⠀⡏⢸⣿⣿⣿⠃⣿⣿⠇⢸⣿⣿⣿⣿⣿⡇⢸
+⣿⣿⡇⢸⠇⣾⡏⣸⠃⢸⣿⡿⢱⡟⣸⡟⣼⠃⠂⣼⢃⠏⢠⠏⠰⠋⠀⢁⣠⣾⠇⠀⣼⣿⡟⠀⠁⣦⣾⣿⡿⠀⣴⡾⠀⠀⠀⠠⠁⣿⡿⢹⠉⢠⣿⣿⠀⢸⣿⣿⣿⣿⣿⡇⢸
+⣿⣿⠀⣼⢰⣿⡀⡿⢀⢸⣿⢡⣿⢡⡿⠰⡏⠀⢰⠇⡞⠀⠀⣾⠞⠀⢴⣿⣿⣷⠀⣼⣿⣿⠃⠀⣸⣿⡿⡿⠀⢀⣿⠇⠀⠀⠀⠐⢀⣿⠇⡌⢠⣸⣿⡇⠀⢸⣿⣿⣿⣿⣿⠃⣸
+⣿⡟⠀⡇⣸⣿⢠⡇⣏⣾⡏⣼⡇⡼⠁⠘⠁⠀⡟⡸⠀⠐⠚⢁⣦⣶⣿⣿⣿⡇⠀⣿⠇⡟⠀⠀⣿⡿⠁⠀⠀⢸⡟⠀⢰⠆⠀⡄⢸⡏⢠⠃⣿⡟⢹⡇⠀⣿⣿⣿⣿⣿⡿⠀⡏
+⣿⡇⠀⡇⣿⣿⢸⡇⡟⣿⢰⣿⢡⠃⠀⠀⣰⠃⢡⠁⠈⠀⣴⣿⣿⣿⣿⣿⠟⡁⡀⢻⠀⡇⠀⢀⣿⠃⠀⠀⡄⢸⠃⠀⣿⡇⠀⠀⣼⡇⢸⢀⣿⡇⢸⠀⢀⣿⣿⣿⣿⣿⠇⢸⠁
+⣿⢃⡆⡇⢿⣿⢸⣷⡇⠏⣼⡏⡌⠀⠀⠀⡏⢀⣼⡘⢀⣤⡈⠛⢿⣿⣿⣧⣾⡇⣇⠘⠀⠁⠀⢸⡏⠀⠀⣼⠃⡏⠀⢸⣿⡇⠀⠀⣿⠀⣾⣼⣿⠀⡟⠀⢸⣿⣿⣿⣿⡟⢀⡟⢠
+⣿⣿⡇⡇⢸⣿⢸⠛⡇⠀⣿⠇⠁⠀⠏⣼⣷⢸⡿⢃⣾⣿⣷⣄⠀⠈⠛⢿⣿⡇⣿⡀⠀⠀⠀⠈⠀⠀⣼⣿⠀⠀⠀⣀⠙⢧⠀⠀⣿⠀⣿⣿⣿⠀⡇⠀⣼⣿⣿⣿⣿⠃⣼⠃⣾
+⣿⣿⡇⠁⢸⣿⠘⠀⡇⠀⣿⠀⠀⠀⢰⣿⣿⡆⠃⣼⣿⣿⣿⣿⣷⣤⣄⣤⣽⣇⢹⡇⠀⣦⡄⠀⠀⢸⣿⡟⠀⠀⢠⣿⣷⣄⠀⠀⣿⠀⣿⣿⡇⢰⠁⠀⣿⣿⣿⣿⡟⢠⡏⢰⡿
+⣿⠻⣷⠀⢸⣿⡄⠀⣷⣾⣧⠀⠀⠀⠈⣿⣿⠇⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣷⣦⡘⡷⠄⠀⣿⣿⡇⠀⣰⣾⣿⣿⣿⡇⠀⠈⠀⣿⣿⠁⠈⠀⢸⣿⣿⣿⡿⢀⣾⣧⣿⠃
+⣿⡆⣿⠀⢸⣿⣇⠀⣿⣿⣿⣷⠀⢀⠀⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠻⠷⢂⣤⣼⣿⣿⣇⢀⣿⣿⣿⣿⣿⣷⠀⠀⠀⣿⣿⠀⠀⠀⣼⣿⣿⣿⠃⣸⣿⣿⠃⠀
+⣿⣧⢸⡆⠘⣿⣿⠀⢻⣿⣿⡇⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣶⣶⣿⣿⣿⣿⣿⣿⣿⠘⠛⣻⣿⣿⣿⣿⡀⠀⠀⣿⡏⢠⠀⠀⣾⣿⣿⠇⠠⢿⢻⠏⠀⠀
+⢹⣿⡌⣧⠀⠻⣿⣷⣾⣿⣿⡇⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠻⣿⣿⣿⣿⣷⡆⠀⢿⠃⠀⠀⠀⣿⣿⠏⠀⠀⠆⠀⠀⠀⠀
+⡌⢿⣷⢹⡆⠈⢿⣿⣿⣿⣿⠧⣿⡟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⡈⠛⠿⣿⣿⣷⠀⠸⠀⠀⡄⢸⣿⡏⢠⠂⠘⠀⠀⠀⠀⠀
+⣷⠘⣿⡆⢿⣧⡈⠻⢿⣿⣿⠀⣿⣧⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣡⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⡆⠀⠀⢠⠁⣸⡟⢀⠎⠀⠀⠀⠀⠀⠀⢠
+⣿⣧⢹⣿⡘⣿⣷⣀⠈⣿⣿⠀⣿⣿⣧⡹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⢸⠀⠟⠁⡼⠀⠀⠀⠀⠀⠀⢀⣾
+⣿⣿⣆⢻⣷⡘⣿⣿⡀⠘⣿⡆⢹⣿⣿⣷⡌⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠗⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⢸⠀⠀⢰⠁⠀⠀⢀⠀⠀⢀⣿⣿
+⢿⢿⣿⣦⠹⣷⠸⣿⣷⠀⠹⡇⠘⣿⣿⠿⢿⣦⣙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣡⣄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠸⠀⠀⠌⠀⠀⢀⠆⠀⢀⣿⣿⣿
+⠀⠈⢿⣿⣷⡙⢧⠹⣿⣇⢧⠉⠀⣿⠏⣰⣶⣤⣍⡛⠿⣿⣿⣿⣿⠟⣡⣾⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠈⠀⢠⣾⣿⡿⠟
+⣀⠀⠈⠻⣿⣿⣌⠣⠙⣿⡌⢧⠀⠁⣼⣿⣿⣿⣿⣿⣷⣶⣬⣭⣥⣾⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠗⠀⠀⠀⠀⠀⠀⣰⣿⡟⠁⠀⠀
+⣿⣿⣶⠀⠈⠛⢿⣷⡄⠈⢿⡌⣇⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⠸⣟⡀⣀⠀⢠⣼⣿⣿⣷⣿⠀⠀
+⣿⣿⣿⣿⣷⣤⡀⠉⠛⢦⣀⣿⡘⡄⢹⣬⡙⣿⣿⣿⠟⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤⣙⠻⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⡙⠛⠠⠶⠃⣸⣿⣿⣿⣿⠀⠀
+⣿⣿⣿⣿⣿⣿⣧⡀⠀⠰⣿⣿⣷⠸⡄⠙⣷⣼⣧⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣦⣭⣭⡉⣙⡛⠛⠿⣿⣿⣿⣿⣿⡇⠐⠄⢀⢂⡀⢘⣿⣿⣿⣿⣿⣷⡄
+⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⢹⣿⣿⣧⢹⡄⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢇⣿⢿⣷⡄⠘⣿⣿⣿⣿⠇⣾⣿⣦⣤⡀⢸⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣷⣤⣈⡙⠻⢿⡇⠀⢿⣇⢻⡆⢿⡀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣧⡀⡜⢁⣤⡘⣿⣿⡿⢠⣿⣿⣿⣿⠁⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⡀⠘⣿⣄⢻⡘⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣸⣿⡀⠀⣷⡘⣿⠇⣼⣿⣿⣿⡿⢸⣿⣿⣿⣿⣿⣿⣿⣿
+-->
 
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
 
     <!-- Page Title -->
     <title>Coffee</title>
     <link rel="icon" type="image/png" href="/assets/media/favicon.png" />
-    <script>try { var f = localStorage.getItem('ctpFlavor'); document.documentElement.setAttribute('data-flavor', ['mocha', 'macchiato', 'frappe', 'latte'].indexOf(f) >= 0 ? f : 'mocha'); } catch (e) { document.documentElement.setAttribute('data-flavor', 'mocha'); }</script>
-
+    <script>
+      try {
+        var f = localStorage.getItem("ctpFlavor");
+        document.documentElement.setAttribute(
+          "data-flavor",
+          ["mocha", "macchiato", "frappe", "latte"].indexOf(f) >= 0
+            ? f
+            : "mocha",
+        );
+      } catch (e) {
+        document.documentElement.setAttribute("data-flavor", "mocha");
+      }
+    </script>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ari.pages.gay" />
 
     <!-- Alternate for mobile -->
-    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://ari.pages.gay" />
+    <link
+      rel="alternate"
+      media="only screen and (max-width: 640px)"
+      href="https://ari.pages.gay"
+    />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#cba6f7" />
 
     <link href="/css/index.css" rel="stylesheet" />
     <link href="/css/picker.css" rel="stylesheet" />
-</head>
+  </head>
 
-<body class="message-page">
+  <body class="message-page">
     <div class="message-card">
-        <div class="glyph">🫖</div>
-        <h1 class="warn">418</h1>
-        <p>I cannot brew coffee, for I am a teapot.</p>
-        <a class="home-link" href="/">← Back to home</a>
+      <div class="glyph">🫖</div>
+      <h1 class="warn">418</h1>
+      <p>I cannot brew coffee, for I am a teapot.</p>
+      <a class="home-link" href="/">← Back to home</a>
     </div>
-</body>
+  </body>
 
-<script src="js/index.js"></script>
-<script src="js/flavors.js"></script>
-<script src="js/cat.js"></script>
-
+  <script src="js/index.js"></script>
+  <script src="js/flavors.js"></script>
+  <script src="js/cat.js"></script>
 </html>

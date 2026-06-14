@@ -86,16 +86,18 @@
   };
 
   function init() {
-    let nekoFile = "/assets/oneko/classics/classic.png"
-    const curScript = document.currentScript
+    let nekoFile = "/assets/oneko/classics/classic.png";
+    const curScript = document.currentScript;
     if (curScript && curScript.dataset.cat) {
-      nekoFile = curScript.dataset.cat
+      nekoFile = curScript.dataset.cat;
     }
     if (curScript && curScript.dataset.persistPosition) {
       if (curScript.dataset.persistPosition === "") {
         persistPosition = true;
       } else {
-        persistPosition = JSON.parse(curScript.dataset.persistPosition.toLowerCase());
+        persistPosition = JSON.parse(
+          curScript.dataset.persistPosition.toLowerCase(),
+        );
       }
     }
 
@@ -136,17 +138,20 @@
 
     if (persistPosition) {
       window.addEventListener("beforeunload", function (event) {
-        window.localStorage.setItem("oneko", JSON.stringify({
-          nekoPosX: nekoPosX,
-          nekoPosY: nekoPosY,
-          mousePosX: mousePosX,
-          mousePosY: mousePosY,
-          frameCount: frameCount,
-          idleTime: idleTime,
-          idleAnimation: idleAnimation,
-          idleAnimationFrame: idleAnimationFrame,
-          bgPos: nekoEl.style.backgroundPosition
-        }));
+        window.localStorage.setItem(
+          "oneko",
+          JSON.stringify({
+            nekoPosX: nekoPosX,
+            nekoPosY: nekoPosY,
+            mousePosX: mousePosX,
+            mousePosY: mousePosY,
+            frameCount: frameCount,
+            idleTime: idleTime,
+            idleAnimation: idleAnimation,
+            idleAnimationFrame: idleAnimationFrame,
+            bgPos: nekoEl.style.backgroundPosition,
+          }),
+        );
       });
     }
 
@@ -204,7 +209,7 @@
       }
       idleAnimation =
         avalibleIdleAnimations[
-        Math.floor(Math.random() * avalibleIdleAnimations.length)
+          Math.floor(Math.random() * avalibleIdleAnimations.length)
         ];
     }
 
@@ -283,7 +288,17 @@ const BASE_SPRITE = "/assets/oneko/classics/classic.png";
 let CAT_MODES = [];
 
 // Order the category sections appear in the menu
-const CATEGORY_ORDER = ["Classics", "Pride", "Cats", "Romance", "Gaming", "Pokémon", "Other Animals", "Things", "Rare"];
+const CATEGORY_ORDER = [
+  "Classics",
+  "Pride",
+  "Cats",
+  "Romance",
+  "Gaming",
+  "Pokémon",
+  "Other Animals",
+  "Things",
+  "Rare",
+];
 
 // click-count goals (total clicks on the cat)
 const CLICK_GOALS = { filter: 13, romance: 69, weed: 420 };
@@ -303,8 +318,8 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
       index.map((name) =>
         fetch(`/js/on/${name}.json`)
           .then((r) => (r.ok ? r.json() : []))
-          .catch(() => [])
-      )
+          .catch(() => []),
+      ),
     );
     CAT_MODES = lists.flat();
   } catch (err) {
@@ -323,9 +338,13 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
 
   // permanently-earned methods (konami, gold, pokemon, + any click goal hit)
   let unlocks;
-  try { unlocks = new Set(JSON.parse(ls.getItem("onekoUnlocks") || "[]")); }
-  catch (e) { unlocks = new Set(); }
-  const saveUnlocks = () => ls.setItem("onekoUnlocks", JSON.stringify([...unlocks]));
+  try {
+    unlocks = new Set(JSON.parse(ls.getItem("onekoUnlocks") || "[]"));
+  } catch (e) {
+    unlocks = new Set();
+  }
+  const saveUnlocks = () =>
+    ls.setItem("onekoUnlocks", JSON.stringify([...unlocks]));
 
   // Returns true if a method was newly unlocked (false if already had it)
   function unlockMethod(key) {
@@ -340,11 +359,11 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
   const isUnlocked = (i) => {
     const key = methodOf(CAT_MODES[i]);
     if (key === "gay") return true;
-    if (key in CLICK_GOALS) return clicks >= CLICK_GOALS[key] || unlocks.has(key);
-    return unlocks.has(key);              // konami / gold / pokemon
+    if (key in CLICK_GOALS)
+      return clicks >= CLICK_GOALS[key] || unlocks.has(key);
+    return unlocks.has(key); // konami / gold / pokemon
   };
-  const unlockedIndices = () =>
-    CAT_MODES.map((_, i) => i).filter(isUnlocked);
+  const unlockedIndices = () => CAT_MODES.map((_, i) => i).filter(isUnlocked);
 
   const apply = (i) => {
     const c = CAT_MODES[i];
@@ -373,9 +392,13 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
     const unlocked = isUnlocked(i);
     const opt = document.createElement(unlocked ? "button" : "div");
     opt.className =
-      "cat-option" + (unlocked ? "" : " locked") + (i === mode ? " current" : "");
+      "cat-option" +
+      (unlocked ? "" : " locked") +
+      (i === mode ? " current" : "");
     if (unlocked) opt.type = "button";
-    const previewFilter = unlocked ? (c.filter || "none") : "brightness(0) opacity(0.3)";
+    const previewFilter = unlocked
+      ? c.filter || "none"
+      : "brightness(0) opacity(0.3)";
     opt.innerHTML = `
       <span class="cat-preview" style="background-image:url('${spriteFor(c)}');background-position:${IDLE_POS};filter:${previewFilter}"></span>
       <span class="cat-name">${unlocked ? c.name : "???"}</span>`;
@@ -394,8 +417,9 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
     });
 
     // known categories first (in order), then any stragglers
-    const order = CATEGORY_ORDER.filter((c) => byCat[c])
-      .concat(Object.keys(byCat).filter((c) => !CATEGORY_ORDER.includes(c)));
+    const order = CATEGORY_ORDER.filter((c) => byCat[c]).concat(
+      Object.keys(byCat).filter((c) => !CATEGORY_ORDER.includes(c)),
+    );
 
     order.forEach((cat) => {
       const section = document.createElement("div");
@@ -440,16 +464,26 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
   });
   document.addEventListener("keydown", (e) => {
     // ignore while typing in a field or with modifier keys held
-    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "");
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(
+      document.activeElement?.tagName || "",
+    );
     if (e.key === "Escape" && !overlay.hidden) {
       closePicker();
     } else if (
       (e.key === "c" || e.key === "C") &&
-      !e.ctrlKey && !e.metaKey && !e.altKey && !typing
+      !e.ctrlKey &&
+      !e.metaKey &&
+      !e.altKey &&
+      !typing
     ) {
       togglePicker();
-    } else if ((e.key === "x" || e.key === "X") &&
-      !e.ctrlKey && !e.metaKey && !e.altKey && !typing) {
+    } else if (
+      (e.key === "x" || e.key === "X") &&
+      !e.ctrlKey &&
+      !e.metaKey &&
+      !e.altKey &&
+      !typing
+    ) {
       if (unlockMethod("gaming")) {
         toast("✨ Gaming sprites unlocked!");
       }
@@ -477,9 +511,11 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
   boop.preload = "auto";
   function playBoop() {
     try {
-      boop.currentTime = 0;      // rewind so rapid clicks each squeak
-      boop.play().catch(() => { }); // ignore autoplay/missing-file errors
-    } catch (e) { /* no-op */ }
+      boop.currentTime = 0; // rewind so rapid clicks each squeak
+      boop.play().catch(() => {}); // ignore autoplay/missing-file errors
+    } catch (e) {
+      /* no-op */
+    }
   }
 
   /* ---------- init + cat click ---------- */
@@ -509,11 +545,24 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
   });
 
   /* ---------- Konami code → press Enter to confirm ---------- */
-  const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
-    "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
-  let kProg = 0, kArmed = false;
+  const KONAMI = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a",
+  ];
+  let kProg = 0,
+    kArmed = false;
   document.addEventListener("keydown", (e) => {
-    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "");
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(
+      document.activeElement?.tagName || "",
+    );
     if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
 
     if (kArmed && e.key === "Enter") {
@@ -544,8 +593,10 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
       }
     };
     checkIdle();
-    new MutationObserver(checkIdle)
-      .observe(np, { attributes: true, attributeFilter: ["data-status"] });
+    new MutationObserver(checkIdle).observe(np, {
+      attributes: true,
+      attributeFilter: ["data-status"],
+    });
   }
 
   /* ---------- Pokémon → find & click the hidden pokéball ---------- */
@@ -566,13 +617,17 @@ const spriteFor = (c) => c.sprite || BASE_SPRITE;
     let elapsed = 0;
     let last = Date.now();
     const timer = setInterval(() => {
-      if (document.hidden) { last = Date.now(); return; }
+      if (document.hidden) {
+        last = Date.now();
+        return;
+      }
       const now = Date.now();
       elapsed += now - last;
       last = now;
       if (elapsed >= TIMER_GOAL_MS) {
         clearInterval(timer);
-        if (unlockMethod("timer")) toast("✨ Patience pays off — timer cats unlocked!");
+        if (unlockMethod("timer"))
+          toast("✨ Patience pays off — timer cats unlocked!");
       }
     }, 1000);
   }
