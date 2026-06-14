@@ -79,7 +79,17 @@
 </head>
 
 <body>
+    <span class="hamburger" onclick="openNav()">&#9776;</span>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/" class="active">Index</a>
+        <a href="/dev-info/">Dev Info</a>
+        <a href="/hardware-info/">Hardware Info</a>
+    </div>
+
+
     <main class="intro">
+        
         <header class="hub-header">
             <img class="pfp" src="assets/media/avatar.webp" alt="Ari avatar" width="96" height="96"
                 fetchpriority="high">
@@ -116,9 +126,9 @@
         <img src="/assets/88x31/transnow2.gif" alt="Melt Ice" loading="lazy">
     </aside>
 </body>
-<script src="js/index.js"></script>
-<script src="js/flavors.js"></script>
-<script src="js/cat.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/flavors.js"></script>
+<script src="/js/cat.js"></script>
 <script src="/js/heatmap.js"></script>
 <script>ContribHeatmap.render("#contrib", { theme: "trans" });</script>
 

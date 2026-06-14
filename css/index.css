@@ -284,8 +284,64 @@ body::before {
     border-color: rgb(var(--accent-rgb));
 }
 
+/* Nav bar */
 
+body {
+  font-family: "Lato", sans-serif;
+}
 
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  background-color: var(--base);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--subtext-0);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: var(--text);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.hamburger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.sidenav a.active {
+  color: var(--lavender);
+}
 /* ==========================================
 2. /coffee
 ============================================= */
