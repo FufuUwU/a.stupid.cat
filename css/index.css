@@ -197,6 +197,18 @@ body::before {
     font-family: "Comic Code";
     transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
     box-shadow: 0 6px 18px -8px rgba(var(--accent-rgb), 0.7);
+
+}
+
+.links {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gitgay-link {
+    display: block;
+    text-align: center;
 }
 
 .gitgay-link:hover {
@@ -259,13 +271,13 @@ body::before {
     border-color: rgb(var(--accent-rgb));
 }
 
-/* Coffee/index.html */
+
+
+/* start of code from security.girlsnetwork.dev/coffee */
 
 .teapot {
   font-size: 6vh;
 }
-
-/* start of code from security.girlsnetwork.dev/coffee */
 
 body.message-page {
   display: flex;
