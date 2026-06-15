@@ -1,7 +1,7 @@
 (function (global) {
   "use strict";
 
-  /* ---- core logic (unchanged from the working version) ---- */
+  /* ---- core logic ---- */
   function sundayOf(date) {
     const sunday = new Date(date);
     sunday.setUTCDate(sunday.getUTCDate() - sunday.getUTCDay());
@@ -28,6 +28,19 @@
     }
     return week;
   }
+  // The current week is truncated to "today" (per the viewer's clock) so future
+  // cells don't render. But the data source has its own clock; if it reports a
+  // contribution dated later in the current week than the viewer's clock thinks
+  // "now" is, that day's index lands past the truncated array. Grow the week to
+  // fit any real data point instead of writing off the end (week[idx] undefined).
+  function ensureDay(week, idx) {
+    while (week.length <= idx) {
+      const date = new Date(week[0].date + "T00:00:00Z");
+      date.setUTCDate(date.getUTCDate() + week.length);
+      week.push({ sources: {}, contributions: 0, date: date.toISOString().slice(0, 10) });
+    }
+    return week[idx];
+  }
   function buildHeatmapData(sources) {
     const weeks = new Map();
     for (const sourceName of Object.keys(sources)) {
@@ -39,9 +52,10 @@
         if (day.contributions > 0) {
           const week = weeks.get(key);
           const idx = new Date(day.timestamp * 1000).getUTCDay();
-          week[idx].contributions += day.contributions;
-          if (!week[idx].sources[sourceName]) week[idx].sources[sourceName] = 0;
-          week[idx].sources[sourceName] += day.contributions;
+          const cell = ensureDay(week, idx);
+          cell.contributions += day.contributions;
+          if (!cell.sources[sourceName]) cell.sources[sourceName] = 0;
+          cell.sources[sourceName] += day.contributions;
         }
       }
     }
