@@ -48,6 +48,20 @@ body {
     padding: clamp(2.5rem, 9vh, 6rem) 1.25rem 5rem;
 }
 
+/* Miku chibi tucked into the bottom-right corner */
+body::after {
+  content: "";
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: clamp(96px, 14vw, 168px);
+  aspect-ratio: 564 / 547;
+  background: url(/assets/theme/teto.png) center / contain no-repeat;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* main content column */
 main.intro,
 .hub {
@@ -338,6 +352,8 @@ body::before {
 .sidenav a.active {
   color: var(--lavender);
 }
+
+
 /* ==========================================
 2. /coffee
 ============================================= */
