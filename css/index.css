@@ -6,6 +6,7 @@
 2. /Coffee
 3. /dev-info
 4. /hardwa-reinfo
+5. /Socials
 ============================================= */
 
 /* IMPORTS */
@@ -635,4 +636,5 @@ body:has(.dev-info) .hub {
 
 .pcpp-item a:hover {
     text-decoration: underline;
-}
+}]
+
