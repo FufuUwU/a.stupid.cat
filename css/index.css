@@ -12,6 +12,7 @@
 /* IMPORTS */
 @import url(fonts.css);
 @import url(picker.css);
+@import url(discord.css);
 @import url(theme-switcher.css);
 @import url(themes/frappe.css);
 @import url(themes/latte.css);
