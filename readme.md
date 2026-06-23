@@ -5,7 +5,6 @@
 </div>
 
 <a href="https://a.stupid.cat">c.stupid.cat</a> is the homepage and center for all of Ari's projects.
-I made this cause I kept losing track of everything, and yeah..
 
 ## License
 
