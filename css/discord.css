@@ -1,53 +1,7 @@
-/* =============================================================================
-   presence-card.css  —  Discord presence card + friends grid
-   Extracted from c.stupid.cat for use with discord.js and friends.js.
-
-   USAGE
-     1. Load this file on any page that runs discord.js (a single card mounts on
-        <div id="discord">) or friends.js (a grid of cards in <div id="friends-root">).
-     2. Copy these font files into /assets/fonts/ (or delete the @font-face blocks
-        to skip custom Discord display-name fonts):
-          gg sans.woff2  Sakura.woff2  Jellybean.woff2  Modern.woff2
-          Medieval.woff2  8Bit.woff2  Vampyre.woff2  Tempo.woff2
-     3. The :root block below is a FALLBACK palette (Catppuccin Mocha). Delete it
-        if your site already defines these variables, or edit to match your theme.
-
-   VARIABLES THE CARD READS (provide these, or keep the :root fallback):
-     --text --subtext-0 --subtext-1 --surface-0 --surface-1 --surface-2
-     --overlay-0 --overlay-1 --crust --mantle --mauve --blue --green --red
-     --yellow --accent-rgb    (the *-rgb ones are comma triplets, e.g. 245, 194, 231)
-
-   VARIABLES discord.js SETS AT RUNTIME (do NOT define — they come from live data):
-     --dc-accent  --pc-banner-color  --pc-grad-1-rgb  --pc-grad-2-rgb
-   ============================================================================= */
-
-/* ---- Discord display-name fonts (look-alikes) — discord.js applies these per
-   user from display_name_styles.font_id. Files live in /assets/fonts/. -------- */
-@font-face { font-family:'DDN gg sans';   src:url('/assets/fonts/gg%20sans.woff2') format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN Sakura';    src:url('/assets/fonts/Sakura.woff2')    format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN Jellybean'; src:url('/assets/fonts/Jellybean.woff2') format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN Modern';    src:url('/assets/fonts/Modern.woff2')    format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN Medieval';  src:url('/assets/fonts/Medieval.woff2')  format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN 8Bit';      src:url('/assets/fonts/8Bit.woff2')      format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN Vampyre';   src:url('/assets/fonts/Vampyre.woff2')   format('woff2'); font-display:swap; }
-@font-face { font-family:'DDN Tempo';     src:url('/assets/fonts/Tempo.woff2')     format('woff2'); font-display:swap; }
-
-/* ---- Theme palette (FALLBACK — Catppuccin Mocha). Delete if your site already
-   defines these custom properties. ------------------------------------------- */
-:root {
-  --text: #cdd6f4;   --subtext-0: #a6adc8; --subtext-1: #bac2de;
-  --overlay-0: #6c7086; --overlay-1: #7f849c;
-  --surface-0: #313244; --surface-1: #45475a; --surface-2: #585b70;
-  --crust: #11111b;  --mantle: #181825;
-  --mauve: #cba6f7;  --blue: #89b4fa; --green: #a6e3a1; --red: #f38ba8; --yellow: #f9e2af;
-  --accent-rgb: 245, 194, 231;
-}
-
-
-/* ===========================================================================
-   CARD COMPONENT  (discord.js — also used by each friend card)
-   =========================================================================== */
-
+/* =====================================================================
+ * 3. PRESENCE CARD  (unified Discord-style profile pill)
+ *    Lifted verbatim from main.css §13 so the card is self-contained.
+ * ===================================================================== */
 .presence-card {
   --dc-accent: 245, 194, 231;
   position: fixed;
@@ -65,7 +19,7 @@
 }
 
 .presence-card[hidden] {
- display: none; 
+  display: none;
 }
 
 .presence-card.has-accent {
@@ -73,6 +27,7 @@
   box-shadow: 0 8px 26px -12px rgba(var(--dc-accent), 0.6);
 }
 
+/* ---- header (always visible) ---- */
 .pc-head {
   display: flex;
   align-items: center;
@@ -93,10 +48,12 @@
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  
+  /* solid fill behind the avatar — many PFPs (incl. Clove's) are partly
+     transparent, and Discord shows a solid backdrop rather than the banner. */
   background: var(--crust);
 }
 
+/* avatar decoration / frame overlay (Discord cosmetic) */
 .pc-av-deco {
   position: absolute;
   top: 50%;
@@ -108,7 +65,7 @@
 }
 
 .pc-av-deco[hidden] {
- display: none; 
+  display: none;
 }
 
 .pc-status {
@@ -122,20 +79,20 @@
   background: var(--overlay-0);
 }
 
-.presence-card[data-status="online"]  .pc-status {
- background: var(--green); 
+.presence-card[data-status="online"] .pc-status {
+  background: var(--green);
 }
 
-.presence-card[data-status="idle"]    .pc-status {
- background: var(--yellow); 
+.presence-card[data-status="idle"] .pc-status {
+  background: var(--yellow);
 }
 
-.presence-card[data-status="dnd"]     .pc-status {
- background: var(--red); 
+.presence-card[data-status="dnd"] .pc-status {
+  background: var(--red);
 }
 
 .presence-card[data-status="offline"] .pc-status {
- background: var(--overlay-0); 
+  background: var(--overlay-0);
 }
 
 .pc-id {
@@ -162,9 +119,10 @@
 }
 
 .pc-user:empty {
- display: none; 
+  display: none;
 }
 
+/* status word (Online / Idle / Do Not Disturb / Offline) */
 .pc-status-text {
   font-size: 0.7rem;
   font-weight: 600;
@@ -173,7 +131,7 @@
 }
 
 .pc-status-text:empty {
- display: none; 
+  display: none;
 }
 
 .pc-status-text::before {
@@ -187,38 +145,39 @@
   background: var(--overlay-0);
 }
 
-.presence-card[data-status="online"]  .pc-status-text {
- color: var(--green); 
+.presence-card[data-status="online"] .pc-status-text {
+  color: var(--green);
 }
 
-.presence-card[data-status="online"]  .pc-status-text::before {
- background: var(--green); 
+.presence-card[data-status="online"] .pc-status-text::before {
+  background: var(--green);
 }
 
-.presence-card[data-status="idle"]    .pc-status-text {
- color: var(--yellow); 
+.presence-card[data-status="idle"] .pc-status-text {
+  color: var(--yellow);
 }
 
-.presence-card[data-status="idle"]    .pc-status-text::before {
- background: var(--yellow); 
+.presence-card[data-status="idle"] .pc-status-text::before {
+  background: var(--yellow);
 }
 
-.presence-card[data-status="dnd"]     .pc-status-text {
- color: var(--red); 
+.presence-card[data-status="dnd"] .pc-status-text {
+  color: var(--red);
 }
 
-.presence-card[data-status="dnd"]     .pc-status-text::before {
- background: var(--red); 
+.presence-card[data-status="dnd"] .pc-status-text::before {
+  background: var(--red);
 }
 
 .presence-card[data-status="offline"] .pc-status-text {
- color: var(--overlay-1); 
+  color: var(--overlay-1);
 }
 
 .presence-card[data-status="offline"] .pc-status-text::before {
- background: var(--overlay-0); 
+  background: var(--overlay-0);
 }
 
+/* ---- expandable sections ---- */
 .pc-sections {
   display: flex;
   flex-direction: column;
@@ -228,7 +187,7 @@
 }
 
 .presence-card:not(.has-sections) .pc-sections {
- display: none; 
+  display: none;
 }
 
 .pc-row {
@@ -282,8 +241,9 @@ a.pc-row:hover,
   max-width: 200px;
 }
 
-.pc-row-title:empty, .pc-row-sub:empty {
- display: none; 
+.pc-row-title:empty,
+.pc-row-sub:empty {
+  display: none;
 }
 
 .pc-row-elapsed {
@@ -293,9 +253,10 @@ a.pc-row:hover,
 }
 
 .pc-row-elapsed:empty {
- display: none; 
+  display: none;
 }
 
+/* artwork / icons */
 .pc-art,
 .pc-row-ic-img {
   width: 38px;
@@ -315,17 +276,19 @@ a.pc-row:hover,
 }
 
 .pc-dev .pc-row-ic.pc-dot {
- background: var(--blue); border-radius: 2px; 
+  background: var(--blue);
+  border-radius: 2px;
 }
 
 .pc-game .pc-row-ic.pc-dot {
- background: var(--green); 
+  background: var(--green);
 }
 
 .pc-stream .pc-row-ic.pc-dot {
- background: var(--mauve); 
+  background: var(--mauve);
 }
 
+/* custom status */
 .pc-custom {
   position: relative;
   align-self: flex-start;
@@ -339,6 +302,7 @@ a.pc-row:hover,
   margin-top: 0.3rem;
 }
 
+/* Discord-style thought-bubble tail */
 .pc-custom::before,
 .pc-custom::after {
   content: "";
@@ -349,19 +313,29 @@ a.pc-row:hover,
 }
 
 .pc-custom::before {
- width: 9px; height: 9px; top: -5px;  left: 12px; 
+  width: 9px;
+  height: 9px;
+  top: -5px;
+  left: 12px;
 }
 
 .pc-custom::after {
- width: 5px; height: 5px; top: -11px; left: 9px; 
+  width: 5px;
+  height: 5px;
+  top: -11px;
+  left: 9px;
 }
 
 .pc-custom:hover {
- transform: none; border-color: transparent; 
+  transform: none;
+  border-color: transparent;
 }
 
 .pc-emoji {
- width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.05rem; 
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
 }
 
 .pc-custom-text {
@@ -373,8 +347,9 @@ a.pc-row:hover,
   line-height: 1.35;
 }
 
+/* spotify progress */
 .pc-spotify .pc-row-title {
- color: var(--green); 
+  color: var(--green);
 }
 
 .pc-progress {
@@ -408,6 +383,17 @@ a.pc-row:hover,
   font-variant-numeric: tabular-nums;
 }
 
+@media (max-width: 640px) {
+  .presence-card {
+    max-width: calc(100vw - 2rem);
+  }
+
+  .api-stage .presence-card {
+    max-width: 100%;
+  }
+}
+
+/* ---- extended Lanyard fields ---- */
 .pc-name-row {
   display: flex;
   align-items: center;
@@ -416,9 +402,10 @@ a.pc-row:hover,
 }
 
 .pc-name-row .pc-name {
- min-width: 0; 
+  min-width: 0;
 }
 
+/* gradient display name (display_name_styles) */
 .pc-name.is-gradient {
   -webkit-background-clip: text;
   background-clip: text;
@@ -426,6 +413,7 @@ a.pc-row:hover,
   -webkit-text-fill-color: transparent;
 }
 
+/* server tag chip (primary_guild) */
 .pc-tag {
   display: inline-flex;
   align-items: center;
@@ -441,13 +429,16 @@ a.pc-row:hover,
 }
 
 .pc-tag[hidden] {
- display: none; 
+  display: none;
 }
 
 .pc-tag-badge {
- width: 14px; height: 14px; display: block; 
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
+/* username + active-platform indicators */
 .pc-sub-row {
   display: flex;
   align-items: center;
@@ -462,13 +453,18 @@ a.pc-row:hover,
 }
 
 .pc-plat {
- width: 12px; height: 12px; display: inline-flex; 
+  width: 12px;
+  height: 12px;
+  display: inline-flex;
 }
 
 .pc-plat svg {
- width: 12px; height: 12px; display: block; 
+  width: 12px;
+  height: 12px;
+  display: block;
 }
 
+/* KV meta line (location, etc.) */
 .pc-meta {
   display: flex;
   align-items: center;
@@ -479,13 +475,15 @@ a.pc-row:hover,
 }
 
 .pc-meta[hidden] {
- display: none; 
+  display: none;
 }
 
 .pc-pin {
- font-size: 0.7rem; line-height: 1; 
+  font-size: 0.7rem;
+  line-height: 1;
 }
 
+/* stacked rows (activity rows that carry buttons) */
 .pc-row--stack {
   flex-direction: column;
   align-items: stretch;
@@ -501,6 +499,7 @@ a.pc-row:hover,
   text-decoration: none;
 }
 
+/* activity icon with small corner badge (assets.small_image) */
 .pc-ic-wrap {
   position: relative;
   flex-shrink: 0;
@@ -509,7 +508,8 @@ a.pc-row:hover,
 }
 
 .pc-ic-wrap .pc-row-ic-img {
- width: 38px; height: 38px; 
+  width: 38px;
+  height: 38px;
 }
 
 .pc-ic-badge {
@@ -523,6 +523,7 @@ a.pc-row:hover,
   object-fit: cover;
 }
 
+/* activity buttons (labels from presence) */
 .pc-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -545,6 +546,7 @@ a.pc-row:hover,
   background: var(--surface-2);
 }
 
+/* profile badges */
 .pc-badges {
   display: inline-flex;
   align-items: center;
@@ -554,17 +556,21 @@ a.pc-row:hover,
 }
 
 .pc-badges:empty {
- display: none; 
+  display: none;
 }
 
 .pc-badge {
- width: 16px; height: 16px; display: block; 
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .pc-badge-link {
- display: inline-flex; line-height: 0; 
+  display: inline-flex;
+  line-height: 0;
 }
 
+/* wishlist star + panel */
 .pc-star {
   margin-left: auto;
   align-self: flex-start;
@@ -579,15 +585,16 @@ a.pc-row:hover,
 }
 
 .pc-star:hover {
- color: rgb(var(--accent-rgb)); transform: scale(1.12); 
+  color: rgb(var(--accent-rgb));
+  transform: scale(1.12);
 }
 
 .pc-star.on {
- color: var(--yellow); 
+  color: var(--yellow);
 }
 
 .pc-wishlist {
- display: none; 
+  display: none;
 }
 
 .presence-card.show-wishlist .pc-wishlist {
@@ -616,19 +623,25 @@ a.pc-row:hover,
 }
 
 a.pc-wl-item:hover {
- background: var(--mantle); 
+  background: var(--mantle);
 }
 
 .pc-wl-ic {
- width: 22px; height: 22px; border-radius: 5px; object-fit: cover; 
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
 .pc-wl-text {
- display: flex; flex-direction: column; line-height: 1.2; min-width: 0; 
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
 }
 
 .pc-wl-name {
- font-size: 0.8rem; 
+  font-size: 0.8rem;
 }
 
 .pc-wl-type {
@@ -647,13 +660,16 @@ a.pc-wl-item:hover {
 }
 
 .pc-wl-item.is-owned {
- opacity: 0.5; 
+  opacity: 0.5;
 }
 
 .pc-wl-empty {
- font-size: 0.78rem; color: var(--subtext-0); margin: 0; 
+  font-size: 0.78rem;
+  color: var(--subtext-0);
+  margin: 0;
 }
 
+/* Discord profile gradient (Catppuccin is the fallback) */
 .presence-card.has-profile-grad {
   background: linear-gradient(180deg, rgb(var(--pc-grad-1-rgb)) 0%, rgb(var(--pc-grad-2-rgb)) 100%);
 }
@@ -663,9 +679,13 @@ a.pc-wl-item:hover {
 }
 
 .presence-card.has-profile-grad .pc-row {
- background: rgba(17, 17, 27, 0.55); 
+  background: rgba(17, 17, 27, 0.55);
 }
 
+
+/* =====================================================================
+ * 4. EXTRAS  (banner, bio, connected accounts — used on the /discord page)
+ * ===================================================================== */
 .pc-banner {
   display: block;
   width: 100%;
@@ -675,9 +695,10 @@ a.pc-wl-item:hover {
 }
 
 .pc-banner[hidden] {
- display: none; 
+  display: none;
 }
 
+/* solid/accent banner fallback when there's no Nitro banner image */
 .presence-card.has-banner-color::before {
   content: "";
   display: block;
@@ -685,6 +706,7 @@ a.pc-wl-item:hover {
   background: var(--pc-banner-color, var(--surface-1));
 }
 
+/* when a banner is present, lift the avatar up over it */
 .presence-card.has-banner .pc-head,
 .presence-card.has-banner-color .pc-head {
   margin-top: -22px;
@@ -722,7 +744,7 @@ a.pc-wl-item:hover {
 }
 
 .pc-bio[hidden] {
- display: none; 
+  display: none;
 }
 
 .pc-connections {
@@ -733,7 +755,7 @@ a.pc-wl-item:hover {
 }
 
 .pc-connections[hidden] {
- display: none; 
+  display: none;
 }
 
 .pc-conn {
@@ -763,9 +785,52 @@ a.pc-conn:hover {
 }
 
 .pc-conn-check {
- color: var(--green); font-weight: 700; 
+  color: var(--green);
+  font-weight: 700;
 }
 
+
+/* =====================================================================
+ * 5. /discord PAGE STAGE  (centered, slightly wider card)
+ * ===================================================================== */
+html:has(.presence-stage),
+body:has(.presence-stage) {
+  height: auto;
+  min-height: 100dvh;
+  overflow-y: auto;
+}
+
+body:has(.presence-stage) {
+  padding: 0;
+}
+
+.presence-stage {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.presence-intro {
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+.presence-intro h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: rgb(var(--accent-rgb));
+}
+
+.presence-intro p {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  color: var(--subtext-0);
+}
+
+/* pronouns chip (shown on the card sub-row) */
 .pc-pronouns {
   padding: 0.05rem 0.4rem;
   border-radius: 6px;
@@ -777,9 +842,13 @@ a.pc-conn:hover {
 }
 
 .pc-pronouns[hidden] {
- display: none; 
+  display: none;
 }
 
+
+/* =====================================================================
+ * 6. /discord PAGE — big "fills the page" presence card
+ * ===================================================================== */
 .presence-stage .presence-card {
   position: static;
   margin: 0;
@@ -788,6 +857,7 @@ a.pc-conn:hover {
   border-radius: 20px;
 }
 
+/* tall Nitro banner */
 .presence-stage .pc-banner {
   height: 220px;
 }
@@ -796,16 +866,21 @@ a.pc-conn:hover {
   height: 150px;
 }
 
+/* header — roomier, big overlapping avatar */
 .presence-stage .pc-head {
   gap: 1rem;
   padding: 0.9rem 1.4rem;
   align-items: flex-end;
 }
 
+/* keep the identity column bottom-aligned to the avatar's visible lower
+   half, whether or not a custom-status bubble is present */
 .presence-stage .presence-card.has-custom .pc-head {
   align-items: flex-end;
 }
 
+/* only the avatar pokes up into the banner; the name/identity block stays
+   in the solid area below it */
 .presence-stage .presence-card.has-banner .pc-head,
 .presence-stage .presence-card.has-banner-color .pc-head {
   margin-top: 0;
@@ -828,7 +903,8 @@ a.pc-conn:hover {
 .presence-stage .presence-card.has-banner-color .pc-av-img {
   width: 120px;
   height: 120px;
-  
+  /* solid dark plate + ring so the banner sits clearly BEHIND the avatar
+     (the PFP itself is partly transparent) */
   background: var(--crust);
   border: 6px solid var(--crust);
 }
@@ -846,22 +922,25 @@ a.pc-conn:hover {
   border-width: 5px;
 }
 
+/* identity block — bigger type */
 .presence-stage .pc-name {
- font-size: 1.5rem; 
+  font-size: 1.5rem;
 }
 
 .presence-stage .pc-user {
- font-size: 0.9rem; 
+  font-size: 0.9rem;
 }
 
 .presence-stage .pc-badges {
- margin-top: 0.3rem; 
+  margin-top: 0.3rem;
 }
 
 .presence-stage .pc-badge {
- width: 22px; height: 22px; 
+  width: 22px;
+  height: 22px;
 }
 
+/* bio + connections — wider, padded to match */
 .presence-stage .pc-bio {
   margin: 0 1.4rem 0.8rem;
   padding: 0.7rem 0.9rem;
@@ -874,286 +953,108 @@ a.pc-conn:hover {
 }
 
 .presence-stage .pc-conn {
- font-size: 0.74rem; padding: 0.3rem 0.65rem; 
+  font-size: 0.74rem;
+  padding: 0.3rem 0.65rem;
 }
 
+/* activity rows — larger artwork + text */
 .presence-stage .pc-sections {
   gap: 0.6rem;
   padding: 0 1.4rem 1.1rem;
 }
 
 .presence-stage .pc-row {
- padding: 0.7rem 0.8rem; border-radius: 14px; 
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
 }
 
 .presence-stage .pc-art,
 .presence-stage .pc-row-ic-img,
 .presence-stage .pc-ic-wrap,
 .presence-stage .pc-ic-wrap .pc-row-ic-img {
- width: 56px; height: 56px; 
+  width: 56px;
+  height: 56px;
 }
 
 .presence-stage .pc-row-title {
- font-size: 0.95rem; max-width: none; 
+  font-size: 0.95rem;
+  max-width: none;
 }
 
 .presence-stage .pc-row-sub {
- font-size: 0.82rem; max-width: none; 
+  font-size: 0.82rem;
+  max-width: none;
 }
 
 .presence-stage .pc-progress {
- width: 100%; 
+  width: 100%;
 }
 
 .presence-stage .pc-custom-text {
- font-size: 0.86rem; max-width: none; 
+  font-size: 0.86rem;
+  max-width: none;
 }
 
+/* wishlist + star scale up a touch */
 .presence-stage .pc-star {
- font-size: 1.2rem; 
+  font-size: 1.2rem;
 }
-
-.presence-card.is-mini {
-  position: static;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
-  z-index: auto;
-  margin: 0;
-  width: 300px;            
-  max-width: 100%;
-}
-
-.presence-card.is-mini .pc-banner {
- height: 84px; 
-}
-
-.presence-card.is-mini .pc-bio {
-  max-height: 6.5em;
-  overflow-y: auto;
-}
-
-.presence-card.is-mini .pc-name--link {
- text-decoration: none; 
-}
-
-.presence-card.is-mini .pc-name--link:hover {
- text-decoration: underline; 
-}
-
-.presence-card.is-mini .pc-name::before {
- content: "🩵 "; 
-}
-
-.presence-card.is-mini.tier-known .pc-name::before {
- content: "💛 "; 
-}
-
-.presence-card.is-mini.tier-wife  .pc-name::before {
- content: "🖤 "; 
-}
-
-.presence-card.is-mini.tier-close .pc-name::before {
- content: "🤍 "; 
-}
-
-.presence-card.is-mini.tier-active-alt .pc-name::before {
- content: "🎭 "; 
-}
-
-.presence-card.is-mini.tier-dead-alt  .pc-name::before {
- content: "💀 "; 
-}
-
-.presence-card.is-mini .pc-name.is-gradient::before {
-  -webkit-text-fill-color: initial;
-  color: var(--text);
-}
-
-.presence-card.is-mini.tier-dead-alt .pc-av-img {
- filter: grayscale(1) brightness(0.6); 
-}
-
-.presence-card.is-mini.tier-dead-alt .pc-name {
-  color: var(--overlay-1);
-  text-decoration: line-through;
-}
-
-.presence-card.is-mini.tier-dead-alt .pc-status {
- display: none; 
-}
-
-.pc-conn-ic {
-  width: 14px;
-  height: 14px;
-  display: block;
-  flex: none;
-}
-
-.presence-card.is-mini .pc-conn-ic {
- width: 13px; height: 13px; 
-}
-
-
-@media (max-width: 640px) {
-
-  .presence-card {
-   max-width: calc(100vw - 2rem); 
-  }
-
-}
-
 
 @media (max-width: 720px) {
-
   .presence-stage .presence-card {
-   max-width: 100%; 
+    max-width: 100%;
   }
-
 }
 
-
 @media (max-width: 480px) {
-
   .presence-stage .pc-banner {
-   height: 150px; 
+    height: 150px;
   }
 
   .presence-stage .pc-avatar,
   .presence-stage .presence-card.has-banner .pc-avatar,
   .presence-stage .presence-card.has-banner-color .pc-avatar {
-   width: 92px; height: 92px; 
+    width: 92px;
+    height: 92px;
   }
 
   .presence-stage .pc-av-img,
   .presence-stage .presence-card.has-banner .pc-av-img,
   .presence-stage .presence-card.has-banner-color .pc-av-img {
-   width: 92px; height: 92px; 
+    width: 92px;
+    height: 92px;
   }
 
   .presence-stage .presence-card.has-banner .pc-head,
   .presence-stage .presence-card.has-banner-color .pc-head {
-   margin-top: 0; 
+    margin-top: 0;
   }
 
   .presence-stage .presence-card.has-banner .pc-avatar,
   .presence-stage .presence-card.has-banner-color .pc-avatar {
-   margin-top: -46px; 
+    margin-top: -46px;
   }
 
   .presence-stage .pc-name {
-   font-size: 1.25rem; 
+    font-size: 1.25rem;
   }
-
 }
 
-
-/* ===========================================================================
-   FRIENDS GRID / SECTIONS  (friends.js)
-   =========================================================================== */
-
-html:has(.project-grid),
-html:has(.friend-grid) {
-  height: auto;
-  min-height: 100dvh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-body:has(.project-grid),
-body:has(.friend-grid) {
-  height: auto;
-  min-height: 100dvh;
-  align-items: flex-start;
-  overflow-x: hidden;
-  overflow-y: visible;
-}
-
-.section {
-  position: relative;
-  z-index: 1;
+/* =====================================================================
+ * 7. INLINE EMBED  (compact presence card sitting in normal page flow,
+ *    e.g. between the other links on the /socials page). Unlike
+ *    .presence-stage this does NOT take over the viewport — the card
+ *    flows in place, centered, so surrounding content stays put.
+ * ===================================================================== */
+.presence-embed {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.section-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--mauve);
-}
-
-.section-subtitle {
-  margin: -1.1rem 0 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: var(--surface-2);
-}
-
-body:has(.friend-grid) .hub-header {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 2rem;
-}
-
-.friend-grid {
-  display: flex;
-  flex-wrap: wrap;
-  
   justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  gap: 1.1rem;
-  width: 100%;
+  margin: 1.25rem 0 0.5rem;
 }
 
-
-@media (max-width: 640px) {
-
-  body,
-  body:has(.dev-info),
-  body:has(.project-grid),
-  body:has(.friend-grid) {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 1rem;
-      height: auto;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      overflow-y: visible;
-      padding: 1.25rem 1rem 2rem;
-  
-  }
-
-  .hub,
-  body:has(.dev-info) .hub,
-  body:has(.project-grid) .hub,
-  body:has(.friend-grid) .hub {
-      order: 2;
-      width: 100%;
-      max-width: 100%;
-  
-  }
-
-  .dev-info,
-  .project-grid,
-  .friend-grid {
-      padding-bottom: 1rem;
-  
-  }
-
-  .section+.section {
-      margin-top: 1.5rem;
-  
-  }
-
+.presence-embed .presence-card {
+  position: static;
+  top: auto;
+  left: auto;
+  margin: 0;
 }
