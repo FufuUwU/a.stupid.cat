@@ -232,19 +232,53 @@ body::after {
   font-family: "Comic Code";
   transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
   box-shadow: 0 6px 18px -8px rgba(var(--accent-rgb), 0.7);
-
 }
 
-.links {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 8px;
+.links-socials {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 800px;
 }
 
 .gitgay-link {
   display: block;
   text-align: center;
+  width: 100%;
 }
+
+
+/* Normal desktop */
+#discord,
+.links-socials {
+    width: 60vw;
+    max-width: 800px;
+}
+
+.gitgay-link,
+.presence-stage .presence-card {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Wide screens (16:9 and wider) */
+@media (min-aspect-ratio: 16/9) {
+    #discord,
+    .links-socials {
+        width: 40vw;
+      max-width: 600px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #discord,
+    .links-socials {
+        width: 90vw;
+    }
+}
+
 
 .gitgay-link:hover {
   transform: translateY(-2px);

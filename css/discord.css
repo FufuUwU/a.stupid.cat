@@ -852,8 +852,7 @@ body:has(.presence-stage) {
 .presence-stage .presence-card {
   position: static;
   margin: 0;
-  width: 100%;
-  max-width: 680px;
+  width: 60vw;
   border-radius: 20px;
 }
 
