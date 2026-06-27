@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Page Title -->
+    <title>Ari</title>
+    <link rel="icon" type="image/png" href="/assets/media/favicon.png" />
+    <link rel="stylesheet" href="/css/index.css">
+    <script>try { var f = localStorage.getItem('ctpFlavor'); document.documentElement.setAttribute('data-flavor', ['mocha', 'macchiato', 'frappe', 'latte'].indexOf(f) >= 0 ? f : 'mocha'); } catch (e) { document.documentElement.setAttribute('data-flavor', 'mocha'); }</script>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Personal site for Ari on git.gay/AriTheStupidCat on GitHub" />
+    <meta name="keywords" content="Portfolio, Personal, Developer" />
+    <meta name="author" content="Ari" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://a.stupid.cat" />
+    <!-- Alternate for mobile -->
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://a.stupid.cat" />
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#cba6f7" />
+    <!-- Open Graph / Discord / Facebook -->
+    <meta property="og:image" content="https://a.stupid.cat/assets/media/favicon.png" />
+    <meta property="og:site_name" content="Ari">
+    <meta property="og:title" content="Ari" />
+    <meta property="og:description" content="Personal site for Ari on git.gay/AriTheStupidCat on GitHub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://a.stupid.cat" />
+    <meta property="og:locale" content="en_GB" />
+    <!-- Twitter Card -->
+    <meta name="twitter:image" content="https://a.stupid.cat/assets/media/favicon.png">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ari" />
+    <meta name="twitter:description" content="Personal site for Ari on git.gay/AriTheStupidCat on GitHub" />
+</head>
+
+<body>
+    <span class="hamburger" onclick="openNav()">&#9776;</span>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/" class="active">Index</a>
+        <a href="/dev-info/">Dev Info</a>
+        <a href="/hardware/">Hardware</a>
+        <a href="/cv/">Curriculum Vitae</a>
+        <a href="/socials/">Socials</a>
+
+    </div>
+
+<body>
+
+    <div class="hub friends-wrap guestbook-wrap">
+        <header class="hub-header">
+            <h1>Guestbook</h1>
+            <p class="tagline">Leave a little note before you go :3</p>
+            <p class="clove">And thanks to <a href="https://c.stupid.cat">Clove</a> for helping me set this up and letting me steal her code xD</p>
+
+        </header>
+
+        <!-- Sign form -->
+        <form id="gb-form" class="gb-form" autocomplete="off" novalidate>
+            <div class="gb-field">
+                <label for="gb-name">Name</label>
+                <input type="text" id="gb-name" name="name" maxlength="40" required
+                    placeholder="what should I call you?">
+            </div>
+            <div class="gb-field">
+                <label for="gb-website">Website <span class="gb-optional">(optional)</span></label>
+                <input type="url" id="gb-website" name="website" maxlength="200"
+                    placeholder="https://your-cool-site.com">
+            </div>
+            <div class="gb-field">
+                <label for="gb-message">Message</label>
+                <textarea id="gb-message" name="message" maxlength="500" rows="3" required
+                    placeholder="say hi!"></textarea>
+                <span class="gb-counter" id="gb-counter">0 / 500</span>
+            </div>
+
+            <!-- Honeypot: hidden from humans, bots tend to fill it. -->
+            <div class="gb-hp" aria-hidden="true">
+                <label for="gb-url2">Leave this empty</label>
+                <input type="text" id="gb-url2" name="url2" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Turnstile widget renders here when a site key is configured. -->
+            <div id="gb-turnstile" class="gb-turnstile"></div>
+
+            <div class="gb-actions">
+                <button type="submit" id="gb-submit">Sign guestbook</button>
+                <span class="gb-status" id="gb-status" role="status"></span>
+            </div>
+        </form>
+
+        <!-- Entries rendered by js/guestbook.js -->
+        <div id="gb-entries" class="gb-entries" aria-live="polite">
+            <p class="gb-empty">Loading messages…</p>
+        </div>
+    </div>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/flavors.js"></script>
+    <script src="/js/cat.js"></script>
+    <script src="/js/guestbook.js" data-api="https://guestbook.a.stupid.cat"
+        data-turnstile-key="0x4AAAAAACVZgjR9UOzjriuG"></script>
+</body>
+</html>
