@@ -5,7 +5,7 @@
 2. /Coffee
 3. /dev-info
 4. /hardwa-reinfo
-5. /Socials
+5. /cv
 ============================================= */
 
 /* IMPORTS */
@@ -679,4 +679,24 @@ body:has(.dev-info) .hub {
     text-decoration: underline;
   }
   
+}
+
+/* ============================================================
+   5. /cv
+   ============================================================ */
+
+.cursor::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background: #00ff88;
+    animation: blink 1s step-end infinite;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+@keyframes blink {
+      50% {
+      opacity: 0;
+    }
 }
