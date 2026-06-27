@@ -44,6 +44,7 @@
     <title>Ari</title>
     <link rel="icon" type="image/png" href="/assets/media/favicon.png" />
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/visitor-counter.css">
     <script>try { var f = localStorage.getItem('ctpFlavor'); document.documentElement.setAttribute('data-flavor', ['mocha', 'macchiato', 'frappe', 'latte'].indexOf(f) >= 0 ? f : 'mocha'); } catch (e) { document.documentElement.setAttribute('data-flavor', 'mocha'); }</script>
     <!-- SEO Meta Tags -->
     <meta name="description" content="Personal site for Ari on git.gay/AriTheStupidCat on GitHub" />
@@ -81,8 +82,6 @@
         <a href="/cv/">Curriculum Vitae</a>
         <a href="/socials/">Socials</a>
         <a href="/guestbook/">Guestbook</a>
-
-
     </div>
 
 
@@ -104,17 +103,17 @@
                     Git.Gay</a>
                 <a class="gitgay-link" href="https://github.com/AriTheStupidCat" target="_blank" rel="noopener">Check
                     out my GitHub</a>
-
             </div>
         </header>
     </main>
-
-    <aside class="button-wall" aria-label="88x31 buttons">
+    <div id="visitor-counter" role="status" aria-label="Visitor count"></div>
+    <aside class="button-wall" aria-label="88x31 buttons">    
         <img src="/assets/88x31/linux.gif" alt="Linux" loading="lazy">
         <img src="/assets/88x31/microslop.gif" alt="Microslop" loading="lazy">
         <img src="/assets/88x31/estrogen.gif" alt="Estrogen" loading="lazy">
         <img src="/assets/88x31/girlsnow.png" alt="Girls Network" loading="lazy">
         <img src="/assets/88x31/skirt.gif" alt="Skirt" loading="lazy">
+        
         <img src="/assets/88x31/gitgay.png" alt="GitGay" loading="lazy">
         <img src="/assets/88x31/blink.gif" alt="Blink" loading="lazy">
         <img src="/assets/88x31/firefox.gif" alt="Firefox" loading="lazy">
@@ -122,9 +121,13 @@
         <img src="/assets/88x31/noweb32.gif" alt="No Web 3.2" loading="lazy">
         <img src="/assets/88x31/meltice.gif" alt="Melt Ice" loading="lazy">
         <img src="/assets/88x31/transnow2.gif" alt="Melt Ice" loading="lazy">
+        
     </aside>
+    
 </body>
 <script src="/js/index.js"></script>
 <script src="/js/flavors.js"></script>
 <script src="/js/cat.js"></script>
+<script src="/js/visitor-counter.js" data-target="#visitor-counter" data-namespace="a-stupid-cat" data-key="hits" data-label="visitors"></script>
+
 </html>
